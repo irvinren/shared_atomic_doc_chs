@@ -1,7 +1,7 @@
 Welcome to shared_atomic's documentation!
 =========================================
 
-<big> The module can be used for atomic operations under multiple processs and multiple threads conditions.
+<big> 这个模块 can be used for atomic operations under multiple processs and multiple threads conditions.
 
 Included datatypes:
 - - [atomic_int](./int_api.md)
