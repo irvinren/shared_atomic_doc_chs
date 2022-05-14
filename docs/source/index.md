@@ -3,15 +3,15 @@
 
 <big> 这个模块可以为python程序提供多线程与多进程程序当中所需要的可共享变量的原子操作。
 
-内部提供的类:
-- - [atomic_int/原子有符号整数](./原子有符号整数API.md)
-- - [atomic_uint/原子无符号整数](./原子无符号整数API.md)
-- - [atomic_float/原子浮点数](./原子布尔型浮点型API.md)
-- - [atomic_bool/原子布尔型](./原子布尔型浮点型API.md)
-- - [atomic_bytearray/原子字节数组](./原子字节数组API.md)
-- - [atomic_string/原子字符串](./原子字符串API.md)
-- - [atomic_set/原子集合](./原子集合API.md), 需要安装 [bitarray>=2.4.0](https://pypi.org/project/bitarray/).
-- - [atomic_list/原子列表](./原子列表API.md), 需要安装 [bitarray>=2.4.0](https://pypi.org/project/bitarray/).
+内部提供的类，详尽说明，请参见源代码当中的注释
+- - atomic_int/原子有符号整数
+- - atomic_uint/原子无符号整数
+- - atomic_float/原子浮点数
+- - atomic_bool/原子布尔型
+- - atomic_bytearray/原子字节数组
+- - atomic_string/原子字符串
+- - atomic_set/原子集合, 需要安装 [bitarray>=2.4.0](https://pypi.org/project/bitarray/).
+- - atomic_list/原子列表, 需要安装 [bitarray>=2.4.0](https://pypi.org/project/bitarray/).
 
 从旧版本继承的CTYPES API可以一直沿用。
 
@@ -35,13 +35,6 @@ ctypes API 的使用参考, 请浏览 [ctypes API](./CTYPES_API.md).</big>
 
    原子API范例.md
    CTYPES范例.md
-   原子有符号整数API.md
-   原子无符号整数API.md
-   原子布尔型浮点型API.md
-   原子字节数组API.md
-   原子列表API.md
-   原子集合API.md
-   原子字符串API.md
    CTYPES_API.md
 
  ```
