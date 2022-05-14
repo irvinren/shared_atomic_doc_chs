@@ -65,7 +65,7 @@ html_theme_options = {
     #'logo': 'sharedAtoms.jpg',
     'github_user': 'irvinren',
     'github_repo': 'shared_atomic',
-    'description': 'Shared atomicity with multiprocessing/multithreads shared ctypes',
+    'description': '多线程多进程共享原子性',
     'donate_url': 'https://paypal.me/xiquanren',
 
     #'github_banner': 'true',

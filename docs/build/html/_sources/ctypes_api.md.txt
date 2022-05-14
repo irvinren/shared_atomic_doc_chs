@@ -1,9 +1,8 @@
-# ctypes API Referennce
+# ctypes API 参考
 
-There are 16 kinds of numeric ctypes that could be updated atomically, these types
-are listed below:
+16 种数字类型的 ctype 可以有原子操作函数, 这些类型包括:
 
-|original ctypes | atomic functions |
+|原始ctype        | 原子函数 functions|
 | -------------- | ---------------- |
 | c_bool         | bool_*           |
 | c_byte         | byte_*           |
@@ -30,79 +29,84 @@ are listed below:
     :members:
 ```
 
-## Integer types support 17 kinds of APIs could be used to achieve atomic operations, 
+## 整数类型支持18 种API 可以用来实现原子操作, 
+- 原子获取
 
-- store value atomically
+  *type*_load(*type* *);
 
-  *type*_store(*type* *, *type* *);
+- 原子存储,将b指针当中的内容放入a指针
 
-- get and set atomically
+  *type*_store(*type* *a, *type* *b);
+
+- 原子获取和设置
 
   *type* *type*_get_and_set(*type* *, *type*);
 
-- compare and set atomically
+- 原子比较和设置
 
   *type* *type*_compare_and_set(*type* *, *type* *, *type*);
   
-- value exchange between 3 pointers in 2 groups atomically, store b in a after store a in c
+- 3个指针之间两两交换值, 将a存入c然后将b存入a
 
   *type*_shift(*type* *a, *type* *b, *type* *c);
 
-- increment and fetch atomically
+- 原子增加和获取
 
   _Bool *type*_add_and_fetch(*type* *, *type*);
 
-- decrement and fetch atomically
+- 原子减少和获取
 
   *type* *type*_sub_and_fetch(*type* *, *type*);
 
-- bitwise AND and fetch the result atomically
+- 原子"与"和获取
 
   *type* *type*_and_and_fetch(*type* *, *type*);
   
-- bitwise OR and fetch the result atomically
+- 原子"或"和获取
 
   *type* *type*_or_and_fetch(*type* *, *type*);
   
-- bitwise XOR and fetch the result atomically
+- 原子"异或"和获取
 
   *type* *type*_xor_and_fetch(*type* *, *type*);
   
-- bitwise NAND(AND first then NOT) and fetch the result atomically
+- 原子"与非"和获取
 
   *type* *type*_nand_and_fetch(*type* *, *type*);
   
-- fetch and increment atomically
+- 原子获取和增加
 
   _Bool *type*_fetch_and_add(*type* *, *type*);
 
-- fetch and decrement atomically
+- 原子获取和增加
 
   *type* *type*_fetch_and_sub(*type* *, *type*);
 
-- fetch then bitwise AND atomically
+- 原子获取和"与"
 
   *type* *type*_fetch_and_and(*type* *, *type*);
   
-- fetch then bitwise OR atomically
+- 原子获取和"或"
 
   *type* *type*_fetch_and_or(*type* *, *type*);
   
-- fetch then bitwise XOR atomically
+- 原子获取和"异或"
 
   *type* *type*_fetch_and_xor(*type* *, *type*);
   
-- fetch then bitwise NAND atomically
+- 原子获取和"与非"
 
   *type* *type*_fetch_and_nand(*type* *, *type*);
 
-floating types supports only 1 kind, 
+浮点型只支持一种操作, 
 
-- store value atomically
+- 原子存储,将b指针当中的内容放入a指针
 
   *type*_store(*type* *, *type* *);
 
-## bool atomic functions:
+## 布尔原子函数:
+
+`void bool_load(_Bool *);`
 
 `void bool_store(_Bool *, _Bool *);`
 
@@ -112,7 +116,9 @@ floating types supports only 1 kind,
 
 `void bool_shift(_Bool *v, _Bool *, _Bool *);`
 
-## byte atomic functions:
+## 字节原子函数:
+
+`void byte_load(char *);`
 
 `void byte_store(char *, char *);`
 
@@ -146,7 +152,9 @@ floating types supports only 1 kind,
 
 `char byte_fetch_and_nand(char *, char);`
 
-## ubyte atomic functions:
+## 无符号字节原子函数:
+
+`void ubyte_load(unsigned char *);`
 
 `void ubyte_store(unsigned char *, unsigned char *);`
 
@@ -181,7 +189,9 @@ floating types supports only 1 kind,
 `unsigned char ubyte_fetch_and_nand(unsigned char *, unsigned char);`
 
 
-## short atomic functions:
+## 短整型原子函数:
+
+`void short_load(short *);`
 
 `void short_store(short *, short *);`
 
@@ -215,7 +225,9 @@ floating types supports only 1 kind,
 
 `short short_fetch_and_nand(short *, short);`
 
-## ushort atomic functions:
+## 无符号短整型原子函数:
+
+`void ushort_load(unsigned short *);`
 
 `void ushort_store(unsigned short *, unsigned short *);`
 
@@ -249,7 +261,9 @@ floating types supports only 1 kind,
 
 `unsigned short ushort_fetch_and_nand(unsigned short *, unsigned short);`
 
-## int atomic functions:
+## 整型原子函数:
+
+`void int_load(int *);`
 
 `void int_store(int *, int *);`
 
@@ -283,7 +297,9 @@ floating types supports only 1 kind,
 
 `int int_fetch_and_nand(int *, int);`
 
-## uint atomic functions:
+## 无符号整型原子函数:
+
+`void uint_load(unsigned int *);`
 
 `void uint_store(unsigned int *, unsigned int *);`
 
@@ -317,7 +333,9 @@ floating types supports only 1 kind,
 
 `unsigned int uint_fetch_and_nand(unsigned int *, unsigned int);`
 
-## wchar atomic functions:
+## 宽字符型原子函数:
+
+`void wchar_load(wchar_t *);`
 
 `void wchar_store(wchar_t *, wchar_t *);`
 
@@ -335,7 +353,9 @@ floating types supports only 1 kind,
 
 `wchar_t wchar_fetch_and_sub(wchar_t *, wchar_t);`
 
-## long atomic functions(the size of long type is 64bit on Linux/MacOSX, 32bit on Windows):
+## 长整型原子函数(Linux/MacOSX上是64位，Windows上是32位):
+
+`void long_load(long *);`
 
 `void long_store(long *, long *);`
 
@@ -369,7 +389,9 @@ floating types supports only 1 kind,
 
 `long long_fetch_and_nand(long *, long);`
 
-## ulong atomic functions:
+## 无符号长整型原子函数(Linux/MacOSX上是64位，Windows上是32位):
+
+`void ulong_load(unsigned long *);`
 
 `void ulong_store(unsigned long *, unsigned long *);`
 
@@ -403,7 +425,9 @@ floating types supports only 1 kind,
 
 `unsigned long ulong_fetch_and_nand(unsigned long *, unsigned long);`
 
-## size_t atomic functions:
+## size_t原子函数:
+
+`void size_t_load(size_t *);`
 
 `void size_t_store(size_t *, size_t *);`
 
@@ -437,7 +461,9 @@ floating types supports only 1 kind,
 
 `size_t size_t_fetch_and_nand(size_t *, size_t);`
 
-## ssize_t atomic functions:
+## 有符号size_t（ssize_t）原子函数:
+
+`void ssize_t_load(ssize_t *);`
 
 `void ssize_t_store(ssize_t *, ssize_t *);`
 
@@ -471,7 +497,9 @@ floating types supports only 1 kind,
 
 `ssize_t ssize_t_fetch_and_nand(ssize_t *, ssize_t);`
 
-## long long atomic functions:
+## 长长整型原子函数:
+
+`void longlong_load(long long *);`
 
 `void longlong_store(long long *, long long *);`
 
@@ -505,7 +533,9 @@ floating types supports only 1 kind,
 
 `long long longlong_fetch_and_nand(long long *, long long);`
 
-## unsigned long long atomic functions:
+## 无符号长长整型原子函数:
+
+`void ulonglong_load(unsigned long long *);`
 
 `void ulonglong_store(unsigned long long *, unsigned long long *);`
 
@@ -539,14 +569,14 @@ floating types supports only 1 kind,
 
 `unsigned long long ulonglong_fetch_and_nand(unsigned long long *, unsigned long long);`
 
-## float atomic functions:
+## 单精度符点数原子函数:
 
 `void float_store(float *v, float *n);`
 
-## double atomic functions:
+## 双精度符点数原子函数:
 
 `void double_store(double *v, double *n);`
 
-## long double atomic functions:
+## 长双精度符点数原子函数:
 
 `void longdouble_store(long double *v, long double *n);`
