@@ -20,7 +20,7 @@
 - - 支持 CPython 3.0-3.11, Pypy 3.0-3.9, 
 - - 需要 cffi >= 1.0.0, <= 1.1.15, 
 - Windows, 
-- - 只去持 CPython 3.0-3.11, 不支持 Pypy. 
+- - 只支持 CPython 3.0-3.11, 不支持 Pypy. 
 - - 需要 cppyy >=1.5.0, <=2.3.1, 它使用 [cling](https://github.com/vgvassilev/cling/tree/master/tools/packaging) 作为C++解释器.
 - - 多进程模式不支持, 只支持单进程多线程模式.
 
